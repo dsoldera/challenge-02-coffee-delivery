@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
-import { Card } from "../../components/Card"
-import { Header } from "../../components/Header"
-import { Coffee } from "../../types/Card"
-import { CoffeeList } from "./styles"
+import { useEffect, useState } from "react";
+import { Card } from "../../components/Card";
+import { Header } from "../../components/Header";
+import { Coffee } from "../../types/Card";
+import { CoffeeList } from "./styles";
+import { ToastContainer } from 'react-toastify';
 
 export const Home = () => {
   const [coffees, setCoffees] = useState<Coffee[]>([]);
@@ -16,8 +17,6 @@ export const Home = () => {
   return (
     <>
       <Header />
-      <h1>Home</h1>
-
       <h2>Nossos cafés</h2>
       <CoffeeList>
         <div>
@@ -26,6 +25,7 @@ export const Home = () => {
           ))}
         </div>
       </CoffeeList>
+      <ToastContainer autoClose={2000} />
     </>
   )
 }

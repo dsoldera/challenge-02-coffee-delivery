@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
-
 export const CoffeeItem = styled.div`
   display: flex;
   justify-content: space-between;
@@ -57,12 +55,34 @@ export const CartTotal = styled.div`
   padding: 40px;
   border-radius: 6px 36px;
   width: 100%;
-  min-width: 448px;
+  min-width: 400px;
 
   > span {
     display: block;
     height: 1px;
     background-color: red;
     margin: 24px 0;
+  }
+`
+
+export const CartTotalInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span:first-child {  }
+
+    span:last-child {}
+  }
+
+  div:last-child {
+    span {
+      font-weight: bold;
+    }
   }
 `

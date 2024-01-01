@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { CardProps, Coffee } from '../../types/Card';
+import { CardProps } from '../../types/Card';
 import { CoffeeImg, Container, Description, OrderSection, Tags, Title, Price, Order } from './styles';
 import { PiShoppingCart, PiCheckFat } from 'react-icons/pi';
 import { Quantity } from './components/Quantity';

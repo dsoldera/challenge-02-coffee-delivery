@@ -2,13 +2,15 @@ import { ReactNode, createContext, useEffect, useReducer } from "react";
 import { Item, Order } from "../../types/Cart";
 import { useNavigate } from "react-router-dom";
 import { cartReducer } from "../reducer/reducer";
-import { addItemAction, removeItemAction } from "../reducer/actions";
+import { addItemAction, decrementQuantityAction, incrementQuantityAction, removeItemAction } from "../reducer/actions";
 
 interface CartContextType {
   cart: Item[];
   orders: Order[];
-  addItemtoCart: (item: Item) => void
-  removeItemCart: (itemId: Item['id']) => void
+  addItemtoCart: (item: Item) => void;
+  removeItemCart: (itemId: Item['id']) => void;
+  decrementQuantity: (itemId: Item['id']) => void;
+  incrementQuantity: (itemId: Item['id']) => void;
 }
 
 export const CartContext = createContext({} as CartContextType);
@@ -50,6 +52,14 @@ export const CartContextProvider = ({
     dispatch(removeItemAction(itemId))
   }
 
+  function incrementQuantity(itemId: Item['id']) {
+    dispatch(incrementQuantityAction(itemId))
+  }
+
+  function decrementQuantity(itemId: Item['id']) {
+    dispatch(decrementQuantityAction(itemId))
+  }
+
   useEffect(() => {
     if (cartState) {
       const stateJSON = JSON.stringify(cartState)
@@ -63,6 +73,8 @@ export const CartContextProvider = ({
       value={{
         addItemtoCart,
         removeItemCart,
+        incrementQuantity,
+        decrementQuantity,
         cart,
         orders,
       }}
