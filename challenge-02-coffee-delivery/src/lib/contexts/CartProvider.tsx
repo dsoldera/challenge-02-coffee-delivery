@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useEffect, useReducer } from "react";
-import { Item, Order } from "../../types/Cart";
+import { Item, Order } from "@/types/Cart";
 import { useNavigate } from "react-router-dom";
 import { cartReducer } from "../reducer/reducer";
 import { addItemAction, decrementQuantityAction, incrementQuantityAction, removeItemAction } from "../reducer/actions";

@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
-import { CardProps } from '../../types/Card';
+import { CardProps } from '@/types/Card';
 import { CoffeeImg, Container, Description, OrderSection, Tags, Title, Price, Order } from './styles';
 import { PiShoppingCart, PiCheckFat } from 'react-icons/pi';
 import { Quantity } from './components/Quantity';
-import { CartContext } from '../../lib/contexts/CartProvider';
+import { CartContext } from '@/lib/contexts/CartProvider';
 
 export const Card = ({ coffee }: CardProps) => {
   const [isItemAdded, setIsItemAdded] = useState(false);

@@ -24,7 +24,7 @@ export const CoffeeItem = styled.div`
   > aside {
     font-weight: bold;
   }
-`
+`;
 
 export const CoffeeInfo = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ export const CoffeeInfo = styled.div`
       color: gray;
     }
   }
-`
+`;
 
 export const CartTotal = styled.div`
   padding: 40px;
@@ -63,7 +63,7 @@ export const CartTotal = styled.div`
     background-color: red;
     margin: 24px 0;
   }
-`
+`;
 
 export const CartTotalInfo = styled.div`
   display: flex;
@@ -85,4 +85,21 @@ export const CartTotalInfo = styled.div`
       font-weight: bold;
     }
   }
-`
+`;
+
+export const CheckoutButton = styled.button`
+  margin-top: 24px;
+  width: 100%;
+  padding: 12px;
+  text-transform: uppercase;
+  color: black;
+  background-color: yellow;
+
+  border-radius: 6px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+`;

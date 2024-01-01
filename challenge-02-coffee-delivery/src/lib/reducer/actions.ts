@@ -1,4 +1,4 @@
-import { Item } from "../../types/Cart";
+import { Item } from "@/types/Cart";
 import { ActionTypes } from "../enum/actions";
 import { toast } from "react-toastify";
 

@@ -1,9 +1,9 @@
 import { PiTrash } from 'react-icons/pi';
 import { Quantity } from '../Card/components/Quantity';
-import { CartTotal, CoffeeItem, CoffeeInfo, CartTotalInfo } from './styles';
+import { CartTotal, CoffeeItem, CoffeeInfo, CartTotalInfo, CheckoutButton } from './styles';
 import { Fragment, useContext, useEffect, useState } from 'react';
-import { CartContext } from '../../lib/contexts/CartProvider';
-import { Coffee } from '../../types/Card';
+import { CartContext } from '@/lib/contexts/CartProvider';
+import { Coffee } from '@/types/Card';
 import { v4 as uuidv4 } from 'uuid';
 
 const shippingPrice = 3.5;
@@ -108,6 +108,9 @@ export const TotalCart = () => {
             </span>
           </div>
         </CartTotalInfo>
+        <CheckoutButton type="submit" form="order">
+          Confirmar pedido
+        </CheckoutButton>
       </CartTotal>
     </>
   )

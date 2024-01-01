@@ -23,21 +23,4 @@ export const InfoContainer = styled.div`
     flex-direction: column;
     gap: 32px;
   }
-`
-
-export const CheckoutButton = styled.button`
-  margin-top: 24px;
-  width: 100%;
-  padding: 12px;
-  text-transform: uppercase;
-  color: black;
-  background-color: yellow;
-
-  border-radius: 6px;
-  transition: all 0.2s;
-
-  &:hover {
-    background-color: green;
-    color: white;
-  }
-`
+`;

@@ -1,5 +1,5 @@
 import { produce } from "immer";
-import { CartState } from "../../types/Cart";
+import { CartState } from "@/types/Cart";
 import { ActionTypes } from "../enum/actions";
 import { Actions } from "./actions";
 

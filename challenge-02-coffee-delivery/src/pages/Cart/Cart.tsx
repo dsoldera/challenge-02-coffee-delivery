@@ -1,9 +1,9 @@
-import { Header } from "../../components/Header";
-import { Address } from "../../components/Address";
-import { Payment } from "../../components/Payment";
-import { TotalCart } from "../../components/TotalCart";
-import { CartContainer, CheckoutButton, InfoContainer } from "./styles";
+import { Header } from "@/components/Header/Header";
+import { CartContainer, InfoContainer } from "./styles";
 import { ToastContainer } from 'react-toastify';
+import { Address } from "@/components/Address/Address";
+import { Payment } from "@/components/Payment/Payment";
+import { TotalCart } from "@/components/TotalCart/TotalCart";
 
 export const Cart = () => {
   return (
@@ -17,9 +17,6 @@ export const Cart = () => {
       </InfoContainer>
       <InfoContainer>
         <TotalCart />
-        <CheckoutButton type="submit" form="order">
-          Confirmar pedido
-        </CheckoutButton>
       </InfoContainer>
       <ToastContainer autoClose={2000} />
     </CartContainer>

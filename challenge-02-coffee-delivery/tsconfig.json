@@ -18,9 +18,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "baseUrl": ".",
   },
-  "baseUrl": ".",
-  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
