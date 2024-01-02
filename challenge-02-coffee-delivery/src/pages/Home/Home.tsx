@@ -5,7 +5,7 @@ import { Coffee } from "@/types/Card";
 import { CoffeeList } from "./styles";
 import { ToastContainer } from 'react-toastify';
 
-export const Home = () => {
+export const HomePage = () => {
   const [coffees, setCoffees] = useState<Coffee[]>([]);
 
   useEffect(() => {

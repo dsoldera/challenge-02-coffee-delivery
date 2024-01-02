@@ -1,14 +1,30 @@
-import { Route, Routes } from 'react-router-dom';
-import { Home } from '../pages/Home';
-import { ThankYou } from '../pages/ThankYou';
-import { Cart } from '../pages/Cart';
+import { createBrowserRouter } from 'react-router-dom';
+import { HomePage } from '@/pages/Home';
+import { CartPage } from '@/pages/Cart';
+import { ThankYouPage } from '@/pages/ThankYou';
+import App from '@/App';
+import { ErrorPage } from '@/pages/Error';
+import { useCart } from '@/lib/hooks/useCart';
 
-export const Router = () => {
-  return (
-    <Routes>
-       <Route path="/" element={<Home />} />
-       <Route path='cart' element={<Cart />} />
-       <Route path='thank-you' element={<ThankYou  />} />
-    </Routes>
-  )
-}
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/cart',
+        element: <CartPage />,
+      },
+      {
+        path: '/order/:orderId/',
+        element: <ThankYouPage />,
+        loader: useCart,
+      },
+    ],
+  },
+]);

@@ -8,7 +8,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormInputs } from '@/types/Address';
 import { useCart } from "@/lib/hooks/useCart";
 
-export const Cart = () => {
+export const CartPage = () => {
   const { checkout, cart } = useCart();
   const {
     handleSubmit,
