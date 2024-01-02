@@ -1,6 +1,7 @@
-import { Item } from "@/types/Cart";
+import { Item, OrderInfo } from "@/types/Cart";
 import { ActionTypes } from "../enum/actions";
 import { toast } from "react-toastify";
+import { NavigateFunction } from "react-router-dom";
 
 export type Actions =
   | {
@@ -18,51 +19,68 @@ export type Actions =
         itemId: Item['id']
       }
     }
+  | {
+      type: ActionTypes.CHECKOUT_CART
+      payload: {
+        order: OrderInfo
+        callback: NavigateFunction
+      }
+    }
 
 export const addItemAction = (item: Item) => {
   toast.success("Coffee Adicionado ao Carrinho!", {
     position: toast.POSITION.TOP_CENTER
-  })
+  });
   return {
     type: ActionTypes.ADD_ITEM,
     payload: {
       item,
     },
   } satisfies Actions
-}
+};
 
 export const removeItemAction = (itemId: Item['id']) => {
   toast.success("Coffee Removido!", {
     position: toast.POSITION.TOP_CENTER
-  })
+  });
   return {
     type: ActionTypes.REMOVE_ITEM,
     payload: {
       itemId,
     },
   } satisfies Actions
-}
+};
 
-export function incrementQuantityAction(itemId: Item['id']) {
+export const incrementQuantityAction = (itemId: Item['id']) => {
   toast.success("Quantidade adicionada!", {
     position: toast.POSITION.TOP_CENTER
-  })
+  });
   return {
     type: ActionTypes.INCREMENT_ITEM_QUANTITY,
     payload: {
       itemId,
     },
   } satisfies Actions
-}
+};
 
-export function decrementQuantityAction(itemId: Item['id']) {
+export const decrementQuantityAction = (itemId: Item['id']) => {
   toast.success("Quantidade reduzida!", {
     position: toast.POSITION.TOP_CENTER
-  })
+  });
   return {
     type: ActionTypes.DECREMENT_ITEM_QUANTITY,
     payload: {
       itemId,
     },
   } satisfies Actions
-}
+};
+
+export const checkoutCartAction = (order: OrderInfo, callback: NavigateFunction) => {
+  return {
+    type: ActionTypes.CHECKOUT_CART,
+    payload: {
+      order,
+      callback,
+    },
+  } satisfies Actions
+};

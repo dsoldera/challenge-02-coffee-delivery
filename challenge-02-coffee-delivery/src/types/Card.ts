@@ -8,6 +8,7 @@ export interface CardProps {
     image: string
   }
 }
+
 export interface Coffee {
   id: string;
   title: string;

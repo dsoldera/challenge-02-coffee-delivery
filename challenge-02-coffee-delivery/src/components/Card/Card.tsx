@@ -1,19 +1,16 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { CardProps } from '@/types/Card';
-import { CoffeeImg, Container, Description, OrderSection, Tags, Title, Price, Order } from './styles';
 import { PiShoppingCart, PiCheckFat } from 'react-icons/pi';
 import { Quantity } from './components/Quantity';
-import { CartContext } from '@/lib/contexts/CartProvider';
+import { useCart } from '@/lib/hooks/useCart';
+import { CoffeeImg, Container, Description, OrderSection, Tags, Title, Price, Order } from './styles';
 
 export const Card = ({ coffee }: CardProps) => {
   const [isItemAdded, setIsItemAdded] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const { addItemtoCart } = useContext(CartContext);
+  const { addItemtoCart } = useCart();
 
   const handleAddItem = () => {
-    console.log('add Item');
-    console.log('coffee', coffee);
-    console.log('quantity', quantity);
     addItemtoCart({id: coffee.id, quantity });
     setIsItemAdded(true);
     setQuantity(1);

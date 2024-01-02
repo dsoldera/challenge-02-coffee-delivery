@@ -1,8 +1,8 @@
 import { ReactNode, createContext, useEffect, useReducer } from "react";
-import { Item, Order } from "@/types/Cart";
+import { Item, Order, OrderInfo } from "@/types/Cart";
 import { useNavigate } from "react-router-dom";
 import { cartReducer } from "../reducer/reducer";
-import { addItemAction, decrementQuantityAction, incrementQuantityAction, removeItemAction } from "../reducer/actions";
+import { addItemAction, checkoutCartAction, decrementQuantityAction, incrementQuantityAction, removeItemAction } from "../reducer/actions";
 
 interface CartContextType {
   cart: Item[];
@@ -11,6 +11,7 @@ interface CartContextType {
   removeItemCart: (itemId: Item['id']) => void;
   decrementQuantity: (itemId: Item['id']) => void;
   incrementQuantity: (itemId: Item['id']) => void;
+  checkout: (order: OrderInfo) => void;
 }
 
 export const CartContext = createContext({} as CartContextType);
@@ -40,24 +41,28 @@ export const CartContextProvider = ({
       return cartState
     },
   )
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { cart, orders } = cartState;
 
-  function addItemtoCart (item: Item) {
-    console.log('addItem CartProvider', item);
-    dispatch(addItemAction(item))
+  const addItemtoCart = (item: Item) => {
+    dispatch(addItemAction(item));
   }
 
-  function removeItemCart(itemId: Item['id']) {
-    dispatch(removeItemAction(itemId))
+  const removeItemCart = (itemId: Item['id']) => {
+    dispatch(removeItemAction(itemId));
   }
 
-  function incrementQuantity(itemId: Item['id']) {
-    dispatch(incrementQuantityAction(itemId))
+  const incrementQuantity = (itemId: Item['id']) => {
+    dispatch(incrementQuantityAction(itemId));
   }
 
-  function decrementQuantity(itemId: Item['id']) {
-    dispatch(decrementQuantityAction(itemId))
+  const decrementQuantity = (itemId: Item['id']) => {
+    dispatch(decrementQuantityAction(itemId));
+  }
+
+  const checkout = (order: OrderInfo) => {
+    console.log('order', order);
+    dispatch(checkoutCartAction(order, navigate))
   }
 
   useEffect(() => {
@@ -75,6 +80,7 @@ export const CartContextProvider = ({
         removeItemCart,
         incrementQuantity,
         decrementQuantity,
+        checkout,
         cart,
         orders,
       }}

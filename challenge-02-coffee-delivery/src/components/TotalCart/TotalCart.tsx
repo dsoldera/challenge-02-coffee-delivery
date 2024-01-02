@@ -1,16 +1,15 @@
 import { PiTrash } from 'react-icons/pi';
 import { Quantity } from '../Card/components/Quantity';
-import { CartTotal, CoffeeItem, CoffeeInfo, CartTotalInfo, CheckoutButton } from './styles';
-import { Fragment, useContext, useEffect, useState } from 'react';
-import { CartContext } from '@/lib/contexts/CartProvider';
+import { Fragment, useEffect, useState } from 'react';
 import { Coffee } from '@/types/Card';
-import { v4 as uuidv4 } from 'uuid';
+import { useCart } from '@/lib/hooks/useCart';
+import { CartTotal, CoffeeItem, CoffeeInfo, CartTotalInfo, CheckoutButton } from './styles';
 
 const shippingPrice = 3.5;
 
 export const TotalCart = () => {
   const [coffees, setCoffees] = useState<Coffee[]>([]);
-  const { cart, removeItemCart, incrementQuantity, decrementQuantity } = useContext(CartContext);
+  const { cart, removeItemCart, incrementQuantity, decrementQuantity } = useCart();
 
   useEffect(() => {
     fetch('./api/data.json')
@@ -46,7 +45,7 @@ export const TotalCart = () => {
   return (
     <>
       <h2>Cafés selecionados</h2>
-      <CartTotal key={uuidv4()}>
+      <CartTotal>
         {coffeesInCart && coffeesInCart.map((coffee) => (
           <Fragment key={coffee.id}>
             <CoffeeItem>

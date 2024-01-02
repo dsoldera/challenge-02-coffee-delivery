@@ -1,19 +1,40 @@
 import { Header } from "@/components/Header/Header";
 import { CartContainer, InfoContainer } from "./styles";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import { Address } from "@/components/Address/Address";
 import { Payment } from "@/components/Payment/Payment";
 import { TotalCart } from "@/components/TotalCart/TotalCart";
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { FormInputs } from '@/types/Address';
+import { useCart } from "@/lib/hooks/useCart";
 
 export const Cart = () => {
+  const { checkout, cart } = useCart();
+  const {
+    handleSubmit,
+  } = useForm<FormInputs>()
+
+  const handleOrderCheckout: SubmitHandler<FormInputs> = (data) => {
+    if (cart.length === 0) {
+      toast.error("Selecione Produtos para seu carrinho!!!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+      return;
+    }
+    console.log('handle data', data);
+    checkout(data);
+  }
+
   return (
     <>
     <Header />
     <CartContainer>
       <InfoContainer>
         <h2>Complete seu pedido</h2>
-        <Address />
-        <Payment />
+        <form id="order" onSubmit={handleSubmit(handleOrderCheckout)}>
+          <Address />
+          <Payment />
+        </form>
       </InfoContainer>
       <InfoContainer>
         <TotalCart />

@@ -1,4 +1,4 @@
-export interface Address {
+type AddressPaymentMethod= {
   cep: number;
   street: string;
   number: string;
@@ -6,4 +6,7 @@ export interface Address {
   neighborhood: string;
   city: string;
   state: string;
+  paymentMethod: 'credit' | 'debit' | 'cash';
 }
+
+export interface FormInputs extends AddressPaymentMethod {}

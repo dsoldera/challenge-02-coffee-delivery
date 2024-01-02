@@ -13,6 +13,7 @@ export interface Order extends OrderInfo {
 export type OrderInfo = z.infer<typeof newOrder>
 
 const mandatory: string = 'Campo obrigatório';
+
 const newOrder = z.object({
   cep: z.number({ invalid_type_error: 'CEP Incorreto' }),
   street: z.string().min(1, mandatory),
@@ -31,6 +32,3 @@ export interface CartState {
   orders: Order[]
 }
 
-export interface PaymentMethod { 
-  type: 'credit' | 'debit' | 'cash';
-}

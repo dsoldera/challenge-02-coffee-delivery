@@ -49,6 +49,21 @@ export function cartReducer(state: CartState, action: Actions) {
           itemToDecrement.quantity -= 1
         }
       })
+
+    case ActionTypes.CHECKOUT_CART:
+      return produce(state, (draft) => {
+        const newOrder = {
+          id: new Date().getTime(),
+          items: state.cart,
+          ...action.payload.order,
+        }
+        draft.orders.push(newOrder)
+        console.log('newOrder', newOrder.items);
+        draft.cart = []
+
+        action.payload.callback(`/order/${newOrder.id}`)
+      })
+  
       
     default:
       return state
