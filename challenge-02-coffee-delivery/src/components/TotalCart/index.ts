@@ -1,1 +1,1 @@
-export * from './TotalCart';
+export * from './TotalCart'

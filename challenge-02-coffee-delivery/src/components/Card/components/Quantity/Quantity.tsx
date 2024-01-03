@@ -1,9 +1,12 @@
-import { PiMinus, PiPlus } from "react-icons/pi"
-import { QuantityCardProps } from "@/types/Card"
-import { Container } from "./styles"
+import { PiMinus, PiPlus } from 'react-icons/pi'
+import { QuantityCardProps } from '@/types/Card'
+import { Container } from './styles'
 
-export const Quantity = ({ quantity, incrementQuantity, decrementQuantity}: QuantityCardProps) => {
-
+export const Quantity = ({
+  quantity,
+  incrementQuantity,
+  decrementQuantity,
+}: QuantityCardProps) => {
   return (
     <Container>
       <button onClick={decrementQuantity}>

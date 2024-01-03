@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CartContainer = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const CartContainer = styled.div`
   padding: 40px 20px;
   margin: 0 auto;
   gap: 32px;
-`;
+`
 
 export const InfoContainer = styled.div`
   display: flex;
@@ -23,4 +23,4 @@ export const InfoContainer = styled.div`
     flex-direction: column;
     gap: 32px;
   }
-`;
+`

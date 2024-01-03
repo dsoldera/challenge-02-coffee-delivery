@@ -1,21 +1,28 @@
-import { PiTrash } from 'react-icons/pi';
-import { Quantity } from '../Card/components/Quantity';
-import { Fragment, useEffect, useState } from 'react';
-import { Coffee } from '@/types/Card';
-import { useCart } from '@/lib/hooks/useCart';
-import { CartTotal, CoffeeItem, CoffeeInfo, CartTotalInfo, CheckoutButton } from './styles';
+import { PiTrash } from 'react-icons/pi'
+import { Quantity } from '../Card/components/Quantity'
+import { Fragment, useEffect, useState } from 'react'
+import { Coffee } from '@/types/Card'
+import { useCart } from '@/lib/hooks/useCart'
+import {
+  CartTotal,
+  CoffeeItem,
+  CoffeeInfo,
+  CartTotalInfo,
+  CheckoutButton,
+} from './styles'
 
-const shippingPrice = 3.5;
+const shippingPrice = 3.5
 
 export const TotalCart = () => {
-  const [coffees, setCoffees] = useState<Coffee[]>([]);
-  const { cart, removeItemCart, incrementQuantity, decrementQuantity } = useCart();
+  const [coffees, setCoffees] = useState<Coffee[]>([])
+  const { cart, removeItemCart, incrementQuantity, decrementQuantity } =
+    useCart()
 
   useEffect(() => {
     fetch('./api/data.json')
-      .then(response => response.json())
-      .then((json) => setCoffees(json.coffees) );
-  }, []);
+      .then((response) => response.json())
+      .then((json) => setCoffees(json.coffees))
+  }, [])
 
   const handleItemRemove = (itemId: string) => {
     removeItemCart(itemId)
@@ -23,14 +30,14 @@ export const TotalCart = () => {
 
   const handleAddCoffee = (itemId: string) => {
     incrementQuantity(itemId)
-   };
+  }
 
   const handleRemoveCoffee = (itemId: string) => {
     decrementQuantity(itemId)
-  };
+  }
 
   const coffeesInCart = cart.map((item) => {
-    const coffeeInfo = coffees.find((coffee) => coffee.id === item.id);
+    const coffeeInfo = coffees.find((coffee) => coffee.id === item.id)
 
     return {
       ...coffeeInfo,
@@ -41,41 +48,42 @@ export const TotalCart = () => {
   const totalItemsPrice = coffeesInCart.reduce((previousValue, currentItem) => {
     return (previousValue += currentItem.price * currentItem.quantity)
   }, 0)
- 
+
   return (
     <>
       <h2>Cafés selecionados</h2>
       <CartTotal>
-        {coffeesInCart && coffeesInCart.map((coffee) => (
-          <Fragment key={coffee.id}>
-            <CoffeeItem>
-              <div>
-                <img src={coffee.image} alt={coffee.title} />
-
+        {coffeesInCart &&
+          coffeesInCart.map((coffee) => (
+            <Fragment key={coffee.id}>
+              <CoffeeItem>
                 <div>
-                  <span>{coffee.title}</span>
+                  <img src={coffee.image} alt={coffee.title} />
 
-                  <CoffeeInfo>
-                    <Quantity
-                      quantity={coffee.quantity}
-                      incrementQuantity={() => handleAddCoffee(coffee.id!)}
-                      decrementQuantity={() => handleRemoveCoffee(coffee.id!)}
-                    />
+                  <div>
+                    <span>{coffee.title}</span>
 
-                    <button onClick={() => handleItemRemove(coffee.id!)}>
-                      <PiTrash />
-                      <span>Remover</span>
-                    </button>
-                  </CoffeeInfo>
+                    <CoffeeInfo>
+                      <Quantity
+                        quantity={coffee.quantity}
+                        incrementQuantity={() => handleAddCoffee(coffee.id!)}
+                        decrementQuantity={() => handleRemoveCoffee(coffee.id!)}
+                      />
+
+                      <button onClick={() => handleItemRemove(coffee.id!)}>
+                        <PiTrash />
+                        <span>Remover</span>
+                      </button>
+                    </CoffeeInfo>
+                  </div>
                 </div>
-              </div>
 
-              <aside>R$ {coffee.price?.toFixed(2)}</aside>
-            </CoffeeItem>
+                <aside>R$ {coffee.price?.toFixed(2)}</aside>
+              </CoffeeItem>
 
-            <span />
-          </Fragment>
-        ))}
+              <span />
+            </Fragment>
+          ))}
         <CartTotalInfo>
           <div>
             <span>Total de itens</span>

@@ -18,4 +18,4 @@ export const CoffeeList = styled.section`
     grid-row-gap: 40px;
     grid-column-gap: 32px;
   }
-`;
+`

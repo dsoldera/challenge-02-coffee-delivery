@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CoffeeItem = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ export const CoffeeItem = styled.div`
   > aside {
     font-weight: bold;
   }
-`;
+`
 
 export const CoffeeInfo = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ export const CoffeeInfo = styled.div`
       color: gray;
     }
   }
-`;
+`
 
 export const CartTotal = styled.div`
   padding: 40px;
@@ -63,7 +63,7 @@ export const CartTotal = styled.div`
     background-color: red;
     margin: 24px 0;
   }
-`;
+`
 
 export const CartTotalInfo = styled.div`
   display: flex;
@@ -75,9 +75,11 @@ export const CartTotalInfo = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    span:first-child {  }
+    span:first-child {
+    }
 
-    span:last-child {}
+    span:last-child {
+    }
   }
 
   div:last-child {
@@ -85,7 +87,7 @@ export const CartTotalInfo = styled.div`
       font-weight: bold;
     }
   }
-`;
+`
 
 export const CheckoutButton = styled.button`
   margin-top: 24px;
@@ -102,4 +104,4 @@ export const CheckoutButton = styled.button`
     background-color: green;
     color: white;
   }
-`;
+`

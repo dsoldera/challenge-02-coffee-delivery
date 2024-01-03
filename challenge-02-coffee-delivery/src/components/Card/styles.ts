@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
   max-width: 256px;
-`;
+`
 
 export const CoffeeImg = styled.img`
   margin-top: -20px;
@@ -16,12 +16,12 @@ export const CoffeeImg = styled.img`
 
 export const Title = styled.h3`
   margin: 16px 0 0;
-`;
+`
 
 export const Description = styled.span`
   margin-top: 8px;
   width: 100%;
-`;
+`
 
 export const Tags = styled.div`
   margin-top: 12px;

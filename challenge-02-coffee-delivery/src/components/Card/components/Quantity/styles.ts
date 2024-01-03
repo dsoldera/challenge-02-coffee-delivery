@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
- display: flex;
+  display: flex;
   gap: 4px;
 
   span {
@@ -15,4 +15,4 @@ export const Container = styled.div`
     align-items: center;
     border: 1px solid gray;
   }
-`;
+`

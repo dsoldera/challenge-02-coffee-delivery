@@ -1,10 +1,9 @@
-import { produce } from "immer";
-import { CartState } from "@/types/Cart";
-import { ActionTypes } from "../enum/actions";
-import { Actions } from "./actions";
+import { produce } from 'immer'
+import { CartState } from '@/types/Cart'
+import { ActionTypes } from '../enum/actions'
+import { Actions } from './actions'
 
 export function cartReducer(state: CartState, action: Actions) {
-
   switch (action.type) {
     case ActionTypes.ADD_ITEM:
       return produce(state, (draft) => {
@@ -25,7 +24,6 @@ export function cartReducer(state: CartState, action: Actions) {
           (item) => item.id === action.payload.itemId,
         )
         draft.cart.splice(itemToRemoveId, 1)
-
       })
 
     case ActionTypes.INCREMENT_ITEM_QUANTITY:
@@ -58,13 +56,12 @@ export function cartReducer(state: CartState, action: Actions) {
           ...action.payload.order,
         }
         draft.orders.push(newOrder)
-        console.log('newOrder', newOrder.items);
+        console.log('newOrder', newOrder.items)
         draft.cart = []
 
         action.payload.callback(`/order/${newOrder.id}`)
       })
-  
-      
+
     default:
       return state
   }
