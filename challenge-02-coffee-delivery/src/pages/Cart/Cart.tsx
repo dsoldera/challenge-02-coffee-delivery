@@ -1,5 +1,4 @@
 import { Header } from "@/components/Header/Header";
-import { CartContainer, InfoContainer } from "./styles";
 import { ToastContainer, toast } from 'react-toastify';
 import { Address } from "@/components/Address/Address";
 import { Payment } from "@/components/Payment/Payment";
@@ -7,6 +6,7 @@ import { TotalCart } from "@/components/TotalCart/TotalCart";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormInputs } from '@/types/Address';
 import { useCart } from "@/lib/hooks/useCart";
+import { CartContainer, InfoContainer } from "./styles";
 
 export const CartPage = () => {
   const { checkout, cart } = useCart();

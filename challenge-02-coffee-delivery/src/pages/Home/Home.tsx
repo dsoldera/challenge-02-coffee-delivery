@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "@/components/Card";
 import { Header } from "@/components/Header";
 import { Coffee } from "@/types/Card";
-import { CoffeeList } from "./styles";
+import { CoffeeList } from './styles';
 import { ToastContainer } from 'react-toastify';
 
 export const HomePage = () => {
