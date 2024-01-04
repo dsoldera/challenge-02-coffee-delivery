@@ -1,10 +1,10 @@
-import { createBrowserRouter } from 'react-router-dom';
-import { HomePage } from '@/pages/Home';
-import { CartPage } from '@/pages/Cart';
-import { ThankYouPage } from '@/pages/ThankYou';
-import App from '@/App';
-import { ErrorPage } from '@/pages/Error';
-import { useCart } from '@/lib/hooks/useCart';
+import { createBrowserRouter } from 'react-router-dom'
+import { HomePage } from '@/pages/Home'
+import { CartPage } from '@/pages/Cart'
+import { ThankYouPage } from '@/pages/ThankYou'
+import App from '@/App'
+import { ErrorPage } from '@/pages/Error'
+import { useCart } from '@/lib/hooks/useCart'
 
 export const router = createBrowserRouter([
   {
@@ -27,4 +27,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
