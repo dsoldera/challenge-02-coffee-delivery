@@ -26,7 +26,6 @@ export const CartPage = () => {
 
   return (
     <>
-      <Header />
       <Helmet title="Carrinho" />
       <CartContainer>
         <InfoContainer>

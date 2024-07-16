@@ -1,20 +1,13 @@
-import { z } from "zod"
+import { z } from 'zod'
 
 export interface Item {
   id: string
   quantity: number
 }
 
-export interface Order extends OrderInfo {
-  id: number
-  items: Item[]
-}
+const mandatory: string = 'Campo obrigatório'
 
-export type OrderInfo = z.infer<typeof newOrder>
-
-const mandatory: string = 'Campo obrigatório';
-
-const newOrder = z.object({
+export const newOrder = z.object({
   cep: z.number({ invalid_type_error: 'CEP Incorreto' }),
   street: z.string().min(1, mandatory),
   number: z.string().min(1, mandatory),
@@ -27,8 +20,14 @@ const newOrder = z.object({
   }),
 })
 
+export type OrderInfo = z.infer<typeof newOrder>
+
+export interface Order extends OrderInfo {
+  id: number
+  items: Item[]
+}
+
 export interface CartState {
   cart: Item[]
   orders: Order[]
 }
-

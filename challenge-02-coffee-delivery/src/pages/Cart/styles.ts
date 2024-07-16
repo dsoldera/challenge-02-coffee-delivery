@@ -24,3 +24,15 @@ export const InfoContainer = styled.div`
     gap: 32px;
   }
 `
+
+export const FormsContainer = styled.div`
+  padding: 40px;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.colors['base-card']};
+  width: 100%;
+  min-width: 640px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`

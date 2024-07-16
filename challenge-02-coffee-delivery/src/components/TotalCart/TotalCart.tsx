@@ -9,6 +9,7 @@ import {
   CoffeeInfo,
   CartTotalInfo,
   CheckoutButton,
+  ContainerTotal,
 } from './styles'
 
 const shippingPrice = 3.5
@@ -46,11 +47,11 @@ export const TotalCart = () => {
   })
 
   const totalItemsPrice = coffeesInCart.reduce((previousValue, currentItem) => {
-    return (previousValue += currentItem.price * currentItem.quantity)
+    return (previousValue += (currentItem.price ?? 0) * currentItem.quantity)
   }, 0)
 
   return (
-    <>
+    <ContainerTotal>
       <h2>Cafés selecionados</h2>
       <CartTotal>
         {coffeesInCart &&
@@ -78,7 +79,7 @@ export const TotalCart = () => {
                   </div>
                 </div>
 
-                <aside>R$ {coffee.price?.toFixed(2)}</aside>
+                <span>R$ {coffee.price?.toFixed(2)}</span>
               </CoffeeItem>
 
               <span />
@@ -119,6 +120,6 @@ export const TotalCart = () => {
           Confirmar pedido
         </CheckoutButton>
       </CartTotal>
-    </>
+    </ContainerTotal>
   )
 }
