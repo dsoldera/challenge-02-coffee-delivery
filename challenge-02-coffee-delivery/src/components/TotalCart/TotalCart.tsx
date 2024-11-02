@@ -1,6 +1,6 @@
 import { PiTrash } from 'react-icons/pi'
 import { Quantity } from '../Card/components/Quantity'
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Coffee } from '@/types/Card'
 import { useCart } from '@/lib/hooks/useCart'
 import {
@@ -8,8 +8,8 @@ import {
   CoffeeItem,
   CoffeeInfo,
   CartTotalInfo,
-  CheckoutButton,
   ContainerTotal,
+  Price,
 } from './styles'
 
 const shippingPrice = 3.5
@@ -52,39 +52,35 @@ export const TotalCart = () => {
 
   return (
     <ContainerTotal>
-      <h2>Cafés selecionados</h2>
       <CartTotal>
-        {coffeesInCart &&
-          coffeesInCart.map((coffee) => (
-            <Fragment key={coffee.id}>
-              <CoffeeItem>
+        {coffeesInCart.map((coffee) => (
+          <div key={coffee.id}>
+            <CoffeeItem key={coffee.id}>
+              <img src={coffee.image} alt={coffee.title} />
+              <CoffeeInfo>
                 <div>
-                  <img src={coffee.image} alt={coffee.title} />
-
-                  <div>
-                    <span>{coffee.title}</span>
-
-                    <CoffeeInfo>
-                      <Quantity
-                        quantity={coffee.quantity}
-                        incrementQuantity={() => handleAddCoffee(coffee.id!)}
-                        decrementQuantity={() => handleRemoveCoffee(coffee.id!)}
-                      />
-
-                      <button onClick={() => handleItemRemove(coffee.id!)}>
-                        <PiTrash />
-                        <span>Remover</span>
-                      </button>
-                    </CoffeeInfo>
-                  </div>
+                  <p>{coffee.title}</p>
                 </div>
-
-                <span>R$ {coffee.price?.toFixed(2)}</span>
-              </CoffeeItem>
-
-              <span />
-            </Fragment>
-          ))}
+                <div>
+                  <Quantity
+                    quantity={coffee.quantity}
+                    incrementQuantity={() => handleAddCoffee(coffee.id!)}
+                    decrementQuantity={() => handleRemoveCoffee(coffee.id!)}
+                  />
+                  <button
+                    type="button"
+                    style={{ marginLeft: '10px' }}
+                    onClick={() => handleItemRemove(coffee.id!)}
+                  >
+                    <PiTrash />
+                    <span>REMOVER</span>
+                  </button>
+                </div>
+              </CoffeeInfo>
+              <Price>R$ {coffee.price?.toFixed(2)}</Price>
+            </CoffeeItem>
+          </div>
+        ))}
         <CartTotalInfo>
           <div>
             <span>Total de itens</span>
@@ -116,9 +112,6 @@ export const TotalCart = () => {
             </span>
           </div>
         </CartTotalInfo>
-        <CheckoutButton type="submit" form="order">
-          Confirmar pedido
-        </CheckoutButton>
       </CartTotal>
     </ContainerTotal>
   )

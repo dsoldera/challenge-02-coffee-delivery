@@ -14,7 +14,7 @@ export const CoffeeList = styled.section`
     line-height: 130%;
     font-weight: 800;
     font-family: 'Baloo 2', sans-serif;
-    color: ${({ theme }) => theme.colors['base-subtitle']};
+    color: ${({ theme }) => theme.colors.baseSubtitle};
   }
 
   > div {
@@ -58,7 +58,7 @@ export const Banner = styled.div`
     line-height: 130%;
     font-weight: 800;
     font-family: 'Baloo 2', sans-serif;
-    color: ${({ theme }) => theme.colors['base-title']};
+    color: ${({ theme }) => theme.colors.baseTitle};
   }
 
   h3 {
@@ -66,7 +66,7 @@ export const Banner = styled.div`
     line-height: 130%;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
-    color: ${({ theme }) => theme.colors['base-subtitle']};
+    color: ${({ theme }) => theme.colors.baseSubtitle};
   }
 `
 export const BannerTitle = styled.div`

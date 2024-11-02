@@ -19,7 +19,7 @@ export const LeftSide = styled.div`
     align-items: center;
     gap: 4px;
 
-    background-color: ${({ theme }) => theme.colors['purple-light']};
+    background-color: ${({ theme }) => theme.colors.purpleLight};
 
     svg {
       color: ${({ theme }) => theme.colors.purple};
@@ -30,7 +30,7 @@ export const LeftSide = styled.div`
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       line-height: 130%;
-      color: ${({ theme }) => theme.colors['purple-dark']};
+      color: ${({ theme }) => theme.colors.purpleDark};
     }
 
     padding: 10px 8px;
@@ -41,22 +41,22 @@ export const LeftSide = styled.div`
     display: flex;
     align-items: center;
 
-    background-color: ${({ theme }) => theme.colors['yellow-light']};
-    color: ${({ theme }) => theme.colors['yellow-dark']};
+    background-color: ${({ theme }) => theme.colors.yellowLight};
+    color: ${({ theme }) => theme.colors.yellowDark};
 
     padding: 8px;
     border-radius: 6px;
 
     position: relative;
 
-    &[aria-disabled='true'] {
+    &.[aria-disabled='true'] {
       pointer-events: none;
     }
 
     span {
       font-weight: bold;
       color: ${({ theme }) => theme.colors.white};
-      background-color: ${({ theme }) => theme.colors['yellow-dark']};
+      background-color: ${({ theme }) => theme.colors.yellowDark};
       border-radius: 50%;
       width: 20px;
       height: 20px;

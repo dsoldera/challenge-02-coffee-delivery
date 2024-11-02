@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.colors['base-card']};
+  background-color: ${({ theme }) => theme.colors.baseCard};
   border-radius: 6px 36px;
   flex-direction: column;
   padding: 0 20px 20px;
@@ -38,8 +38,8 @@ export const CoffeeTags = styled.div`
   gap: 4px;
 
   span {
-    background-color: ${({ theme }) => theme.colors['yellow-light']};
-    color: ${({ theme }) => theme.colors['yellow-dark']};
+    background-color: ${({ theme }) => theme.colors.yellowLight};
+    color: ${({ theme }) => theme.colors.yellowDark};
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     border-radius: 100px;
@@ -51,7 +51,7 @@ export const CoffeeTags = styled.div`
 `
 
 export const CoffeeTitle = styled.h3`
-  color: ${({ theme }) => theme.colors['base-subtitle']};
+  color: ${({ theme }) => theme.colors.baseSubtitle};
   font-family: 'Baloo 2', sans-serif;
   font-size: 1.25rem;
   line-height: 130%;
@@ -60,7 +60,7 @@ export const CoffeeTitle = styled.h3`
 `
 
 export const CoffeeDescription = styled.span`
-  color: ${({ theme }) => theme.colors['base-label']};
+  color: ${({ theme }) => theme.colors.baseLabel};
   font-family: 'Roboto', sans-serif;
   line-height: 130%;
   font-weight: 400;
@@ -82,7 +82,7 @@ export const CoffeePrice = styled.div`
   gap: 2px;
 
   span:first-child {
-    color: ${({ theme }) => theme.colors['base-text']};
+    color: ${({ theme }) => theme.colors.baseText};
     font-family: 'Baloo 2', sans-serif;
     font-size: 1.25rem;
     line-height: 130%;
@@ -90,7 +90,7 @@ export const CoffeePrice = styled.div`
   }
 
   span:last-child {
-    color: ${({ theme }) => theme.colors['base-text']};
+    color: ${({ theme }) => theme.colors.baseText};
     font-family: 'Baloo 2', sans-serif;
     font-size: 1.5rem;
     line-height: 130%;
@@ -105,7 +105,7 @@ export const CoffeeOrder = styled.div<{ $itemAdded?: boolean }>`
 
   > button {
     background-color: ${({ theme, $itemAdded }) =>
-      $itemAdded ? theme.colors['yellow-dark'] : theme.colors['purple-dark']};
+      $itemAdded ? theme.colors.yellowDark : theme.colors.purpleDark};
     transition: background-color 0.2s;
     border-radius: 6px;
     display: flex;

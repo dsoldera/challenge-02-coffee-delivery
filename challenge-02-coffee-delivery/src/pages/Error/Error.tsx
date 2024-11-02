@@ -1,6 +1,5 @@
 import { useRouteError } from 'react-router-dom'
 import { Container } from './styles'
-import { Header } from '@/components/Header'
 import { Helmet } from 'react-helmet-async'
 
 export const ErrorPage = () => {
@@ -9,7 +8,6 @@ export const ErrorPage = () => {
 
   return (
     <>
-      <Header />
       <Helmet title="Error Page" />
       <Container>
         <h1>Oops!</h1>

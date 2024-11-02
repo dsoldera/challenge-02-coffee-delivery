@@ -8,17 +8,16 @@ import {
 import { useForm } from 'react-hook-form'
 import { FormInputs } from '@/types/Address'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { newOrder } from '@/types/Cart'
-import { PaymentRadio } from './components/PaymentRadio'
+import { addressPaymentNewOrder } from '@/types/Cart'
+import { PaymentRadio } from '../Form/PaymentRadio/PaymentRadio'
 
 export const Payment = () => {
   const {
     register,
-    handleSubmit,
     watch,
     formState: { errors },
   } = useForm<FormInputs>({
-    resolver: zodResolver(newOrder),
+    resolver: zodResolver(addressPaymentNewOrder),
   })
 
   const selectedPaymentMethod = watch('paymentMethod')

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BannerTitle } from '../Address/styles'
+import { BannerTitle } from '../Card/components/Address/styles'
 import { FormsContainer } from '@/pages/Cart/styles'
 
 export const PaymentContainer = styled(FormsContainer)``

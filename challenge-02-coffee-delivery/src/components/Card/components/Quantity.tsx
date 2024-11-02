@@ -9,11 +9,11 @@ export const Quantity = ({
 }: QuantityCardProps) => {
   return (
     <ContainerQuantity>
-      <button onClick={decrementQuantity}>
+      <button type="button" onClick={decrementQuantity}>
         <PiMinus size={12} />
       </button>
       <span>{quantity}</span>
-      <button onClick={incrementQuantity}>
+      <button type="button" onClick={incrementQuantity}>
         <PiPlus size={12} />
       </button>
     </ContainerQuantity>

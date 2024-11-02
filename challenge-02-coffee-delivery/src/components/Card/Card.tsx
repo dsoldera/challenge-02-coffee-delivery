@@ -65,13 +65,9 @@ export const Card = ({ coffee }: CardProps) => {
 
           <button disabled={isItemAdded} onClick={handleAddItem}>
             {isItemAdded ? (
-              <CheckFat
-                weight="fill"
-                size={22}
-                color={theme.colors['base-card']}
-              />
+              <CheckFat weight="fill" size={22} color={theme.colors.baseCard} />
             ) : (
-              <ShoppingCart size={22} color={theme.colors['base-card']} />
+              <ShoppingCart size={22} color={theme.colors.baseCard} />
             )}
           </button>
         </CoffeeOrder>

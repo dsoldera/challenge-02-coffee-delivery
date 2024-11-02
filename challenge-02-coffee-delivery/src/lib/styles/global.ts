@@ -10,6 +10,6 @@ export const GlobalStylesCoffeeDelivery = createGlobalStyle`
 
   body {
     background-color: ${(props) => props.theme.colors.default};
-    color: ${(props) => props.theme.colors['base-text']};
+    color: ${(props) => props.theme.colors.baseText};
   }
 `

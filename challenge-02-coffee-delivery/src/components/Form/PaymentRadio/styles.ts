@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.label`
-  background-color: ${({ theme }) => theme.colors['base-button']};
-  color: ${({ theme }) => theme.colors['base-text']};
+  background-color: ${({ theme }) => theme.colors.baseButton};
+  color: ${({ theme }) => theme.colors.baseText};
   font-family: 'Baloo 2', sans-serif;
   border: 1px solid transparent;
   text-transform: uppercase;
@@ -18,11 +18,11 @@ export const Container = styled.label`
   gap: 12px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors['base-hover']};
+    background-color: ${({ theme }) => theme.colors.baseHover};
   }
 
-  &[data-state='true'] {
-    background-color: ${({ theme }) => theme.colors['purple-light']};
+  &.[data-state='true'] {
+    background-color: ${({ theme }) => theme.colors.purpleLight};
     border-color: ${({ theme }) => theme.colors.purple};
   }
 
