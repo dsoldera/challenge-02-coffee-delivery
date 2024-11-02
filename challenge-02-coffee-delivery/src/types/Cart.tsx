@@ -8,7 +8,7 @@ export interface Item {
 const mandatory: string = 'Campo obrigatório'
 
 export const addressPaymentNewOrder = z.object({
-  cep: z.number({ invalid_type_error: 'CEP Incorreto' }),
+  cep: z.string({ invalid_type_error: 'CEP Incorreto' }).min(8, mandatory),
   street: z.string().min(1, mandatory),
   number: z.string().min(1, mandatory),
   fullAddress: z.string(),

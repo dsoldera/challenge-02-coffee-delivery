@@ -1,5 +1,5 @@
 type AddressPaymentMethod = {
-  cep: number
+  cep: string
   street: string
   number: string
   fullAddress: string

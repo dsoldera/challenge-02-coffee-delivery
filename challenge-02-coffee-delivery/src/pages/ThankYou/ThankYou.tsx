@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 export const ThankYouPage = () => {
   const { orders } = useCart()
-  // console.log('orders', orders);
+  console.log('orders', orders)
   const { orderId } = useParams()
   const orderInfo = orders.find((order: Order) => order.id === Number(orderId))
 

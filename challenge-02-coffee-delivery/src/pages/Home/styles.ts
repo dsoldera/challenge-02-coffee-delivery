@@ -54,11 +54,11 @@ export const Banner = styled.div`
   }
 
   h1 {
+    color: ${({ theme }) => theme.colors.baseTitle};
+    font-family: 'Baloo 2', sans-serif;
     font-size: 3rem;
     line-height: 130%;
-    font-weight: 800;
-    font-family: 'Baloo 2', sans-serif;
-    color: ${({ theme }) => theme.colors.baseTitle};
+    font-weight: bold;
   }
 
   h3 {

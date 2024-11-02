@@ -26,6 +26,12 @@ export type Actions =
         callback: NavigateFunction
       }
     }
+  | {
+      type: ActionTypes.ADD_LOCALSTORAGE
+      payload: {
+        order: OrderInfo
+      }
+    }
 
 export const addItemAction = (item: Item) => {
   toast.success('Coffee Adicionado ao Carrinho!', {
@@ -84,6 +90,15 @@ export const checkoutCartAction = (
     payload: {
       order,
       callback,
+    },
+  } satisfies Actions
+}
+
+export const addLocalStorage = (order: OrderInfo) => {
+  return {
+    type: ActionTypes.ADD_LOCALSTORAGE,
+    payload: {
+      order,
     },
   } satisfies Actions
 }

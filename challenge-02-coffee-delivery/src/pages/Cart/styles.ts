@@ -58,9 +58,47 @@ export const PaymentContainer = styled(FormsContainer)`
   background-color: ${({ theme }) => theme.colors.baseCard};
 `
 export const PaymentHeading = styled.div`
+  display: flex;
+  margin-bottom: 32px;
+
+  h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: ${({ theme }) => theme.colors.baseSubtitle};
+  }
+
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: ${({ theme }) => theme.colors.baseText};
+  }
+
   svg {
     color: ${({ theme }) => theme.colors.purple};
   }
+`
+
+export const PaymentOptions = styled.div`
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+`
+
+export const PaymentErrorMessage = styled.p`
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.125rem;
+  line-height: 130%;
+  font-weight: 400;
+  color: red;
 `
 
 export const AddressContainer = styled(FormsContainer)`
@@ -75,19 +113,20 @@ export const AddressContainer = styled(FormsContainer)`
 `
 export const AddressHeading = styled.div`
   display: flex;
-  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Roboto', sans-serif;
 
   div {
     margin-left: 8px;
+    margin-bottom: 32px;
   }
 
   h3 {
-    color: #1e1e1e;
-    font-weight: normal;
     font-size: 16px;
+    color: ${({ theme }) => theme.colors.baseSubtitle};
+    font-weight: normal;
   }
   p {
-    color: #1e1e1e;
+    color: ${({ theme }) => theme.colors.baseText};
     font-weight: normal;
     font-size: 14px;
   }

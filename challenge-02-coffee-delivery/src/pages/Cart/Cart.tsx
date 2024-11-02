@@ -10,9 +10,10 @@ import {
   CartContainer,
   CheckoutButton,
   ContainerTotal,
-  ContainerTotal2,
   PaymentContainer,
+  PaymentErrorMessage,
   PaymentHeading,
+  PaymentOptions,
   TotalCartContainer,
 } from './styles'
 import { Helmet } from 'react-helmet-async'
@@ -25,17 +26,20 @@ import {
   CurrencyDollar,
   Money,
 } from '@phosphor-icons/react'
-import { TextInput } from '@/components/Form'
+import { PaymentRadio, TextInput } from '@/components/Form'
 
 export const CartPage = () => {
-  const { cart } = useCart()
+  const { cart, checkout } = useCart()
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<FormInputs>({
     resolver: zodResolver(addressPaymentNewOrder),
   })
+
+  const selectedPaymentMethod = watch('paymentMethod')
 
   const handleOrderCheckout: SubmitHandler<FormInputs> = (data) => {
     console.log('handle data', data)
@@ -45,7 +49,7 @@ export const CartPage = () => {
         position: toast.POSITION.TOP_CENTER,
       })
     }
-    // checkout(data)
+    checkout(data)
   }
 
   return (
@@ -66,10 +70,58 @@ export const CartPage = () => {
               <AddressForm>
                 <TextInput
                   stylesProps={{ style: { gridArea: 'cep' } }}
-                  type="number"
+                  type="text"
                   error={errors.cep}
                   placeholder="CEP"
                   {...register('cep')}
+                />
+
+                <TextInput
+                  stylesProps={{ style: { gridArea: 'street' } }}
+                  type="text"
+                  error={errors.street}
+                  placeholder="Rua"
+                  {...register('street')}
+                />
+
+                <TextInput
+                  stylesProps={{ style: { gridArea: 'number' } }}
+                  type="number"
+                  error={errors.number}
+                  placeholder="Número"
+                  {...register('number')}
+                />
+
+                <TextInput
+                  stylesProps={{ style: { gridArea: 'fullAddress' } }}
+                  type="text"
+                  error={errors.fullAddress}
+                  placeholder="Complemento"
+                  {...register('fullAddress')}
+                />
+
+                <TextInput
+                  stylesProps={{ style: { gridArea: 'neighborhood' } }}
+                  type="text"
+                  error={errors.neighborhood}
+                  placeholder="Bairro"
+                  {...register('neighborhood')}
+                />
+
+                <TextInput
+                  stylesProps={{ style: { gridArea: 'city' } }}
+                  type="text"
+                  error={errors.city}
+                  placeholder="Cidade"
+                  {...register('city')}
+                />
+
+                <TextInput
+                  stylesProps={{ style: { gridArea: 'state' } }}
+                  type="text"
+                  error={errors.state}
+                  placeholder="UF"
+                  {...register('state')}
                 />
               </AddressForm>
             </AddressContainer>
@@ -77,13 +129,47 @@ export const CartPage = () => {
               <PaymentHeading>
                 <CurrencyDollar size={22} />
                 <div>
-                  <span>Pagamento</span>
+                  <h3>Pagamento</h3>
                   <p>
                     O pagamento é feito na entrega. Escolha a forma que deseja
                     pagar
                   </p>
                 </div>
               </PaymentHeading>
+              <PaymentOptions>
+                <PaymentRadio
+                  isSelected={selectedPaymentMethod === 'credit'}
+                  {...register('paymentMethod')}
+                  value="credit"
+                >
+                  <CreditCard size={16} />
+                  <span>Cartão de crédito</span>
+                </PaymentRadio>
+
+                <PaymentRadio
+                  isSelected={selectedPaymentMethod === 'debit'}
+                  {...register('paymentMethod')}
+                  value="debit"
+                >
+                  <Bank size={16} />
+                  <span>Cartão de débito</span>
+                </PaymentRadio>
+
+                <PaymentRadio
+                  isSelected={selectedPaymentMethod === 'cash'}
+                  {...register('paymentMethod')}
+                  value="cash"
+                >
+                  <Money size={16} />
+                  <span>Dinheiro</span>
+                </PaymentRadio>
+
+                {errors.paymentMethod ? (
+                  <PaymentErrorMessage role="alert">
+                    {errors.paymentMethod.message}
+                  </PaymentErrorMessage>
+                ) : null}
+              </PaymentOptions>
             </PaymentContainer>
           </ContainerTotal>
           <ContainerTotal>

@@ -1,27 +1,20 @@
 import styled from 'styled-components'
 
 export const Container = styled.label`
+  display: flex;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.baseButton};
-  color: ${({ theme }) => theme.colors.baseText};
-  font-family: 'Baloo 2', sans-serif;
   border: 1px solid transparent;
-  text-transform: uppercase;
   transition: all 0.2s;
   align-items: center;
   border-radius: 6px;
-  font-size: 1.5rem;
-  line-height: 130%;
-  font-weight: 800;
   padding: 16px;
-  width: 100%;
-  display: flex;
-  gap: 12px;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.baseHover};
   }
 
-  &.[data-state='true'] {
+  &[data-state='true'] {
     background-color: ${({ theme }) => theme.colors.purpleLight};
     border-color: ${({ theme }) => theme.colors.purple};
   }
@@ -32,9 +25,13 @@ export const Container = styled.label`
 
   span {
     font-size: 12px;
+    color: ${({ theme }) => theme.colors.baseText};
     font-family: 'Roboto';
+    font-family: 'Baloo 2', sans-serif;
     font-weight: 400;
+    text-transform: uppercase;
     line-height: 130%;
+    margin-left: 5px;
   }
 
   svg {

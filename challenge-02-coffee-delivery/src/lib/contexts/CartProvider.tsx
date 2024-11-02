@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useEffect, useReducer } from 'react'
+import { ReactNode, createContext, useReducer } from 'react'
 import { Item, Order, OrderInfo } from '@/types/Cart'
 import { useNavigate } from 'react-router-dom'
 import { cartReducer } from '../reducer/reducer'
@@ -18,6 +18,7 @@ interface CartContextType {
   decrementQuantity: (itemId: Item['id']) => void
   incrementQuantity: (itemId: Item['id']) => void
   checkout: (order: OrderInfo) => void
+  addLocalStorage: () => void
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -65,17 +66,15 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   }
 
   const checkout = (order: OrderInfo) => {
-    console.log('order', order)
     dispatch(checkoutCartAction(order, navigate))
   }
 
-  useEffect(() => {
+  const addLocalStorage = async () => {
     if (cartState) {
       const stateJSON = JSON.stringify(cartState)
-
-      localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
+      await localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
     }
-  }, [cartState])
+  }
 
   return (
     <CartContext.Provider
@@ -84,6 +83,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
         removeItemCart,
         incrementQuantity,
         decrementQuantity,
+        addLocalStorage,
         checkout,
         cart,
         orders,

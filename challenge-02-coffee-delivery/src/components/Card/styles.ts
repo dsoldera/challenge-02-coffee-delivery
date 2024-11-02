@@ -24,8 +24,8 @@ export const Container = styled.div`
 
 export const CoffeeImg = styled.img`
   margin-top: -20px;
-  max-width: 120px;
-  max-height: 120px;
+  width: 120px;
+  height: 120px;
   align-self: center;
 `
 
@@ -59,13 +59,14 @@ export const CoffeeTitle = styled.h3`
   margin: 16px 0 0;
 `
 
-export const CoffeeDescription = styled.span`
+export const CoffeeDescription = styled.p`
   color: ${({ theme }) => theme.colors.baseLabel};
   font-family: 'Roboto', sans-serif;
   line-height: 130%;
   font-weight: 400;
   font-size: 14px;
   margin-top: 8px;
+  margin-bottom: 30px;
   width: 100%;
 `
 
