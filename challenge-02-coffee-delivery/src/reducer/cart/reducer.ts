@@ -1,6 +1,6 @@
 import { produce } from 'immer'
 import { CartState } from '@/types/Cart'
-import { ActionTypes } from '../enum/actions'
+import { ActionTypes } from '../../lib/enum/actions'
 import { Actions } from './actions'
 
 export function cartReducer(state: CartState, action: Actions) {
@@ -56,10 +56,22 @@ export function cartReducer(state: CartState, action: Actions) {
           ...action.payload.order,
         }
         draft.orders.push(newOrder)
-        console.log('newOrder', newOrder.items)
         draft.cart = []
 
-        action.payload.callback(`/order/${newOrder.id}`)
+        action.payload.callback(`/order/${newOrder.id}/success`)
+      })
+
+    case ActionTypes.ADD_LOCALSTORAGE:
+      return produce(state, (draft) => {
+        if (state) {
+          const stateJSON = JSON.stringify(state)
+          const stateJSONDraft = JSON.stringify(draft)
+          localStorage.setItem('@coffee-delivery:cart-dani', stateJSON)
+          localStorage.setItem(
+            '@coffee-delivery:cart-dani-draft',
+            stateJSONDraft,
+          )
+        }
       })
 
     default:

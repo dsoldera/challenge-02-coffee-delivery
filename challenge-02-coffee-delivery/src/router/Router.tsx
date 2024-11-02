@@ -4,7 +4,7 @@ import { CartPage } from '@/pages/Cart'
 import { ThankYouPage } from '@/pages/ThankYou'
 import App from '@/App'
 import { ErrorPage } from '@/pages/Error'
-import { useCart } from '@/lib/hooks/useCart'
+import { useCart } from '@/hooks/useCart'
 
 export const router = createBrowserRouter([
   {
@@ -21,9 +21,8 @@ export const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
-        path: '/order/:orderId/',
+        path: '/order/:orderId/success',
         element: <ThankYouPage />,
-        loader: useCart,
       },
     ],
   },

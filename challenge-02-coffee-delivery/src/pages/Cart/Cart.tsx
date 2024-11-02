@@ -2,7 +2,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { TotalCart } from '@/components/TotalCart/TotalCart'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { FormInputs } from '@/types/Address'
-import { useCart } from '@/lib/hooks/useCart'
+import { useCart } from '@/hooks/useCart'
 import {
   AddressContainer,
   AddressForm,
@@ -43,11 +43,13 @@ export const CartPage = () => {
 
   const handleOrderCheckout: SubmitHandler<FormInputs> = (data) => {
     console.log('handle data', data)
+    console.log('cart', cart)
 
     if (cart.length === 0) {
       toast.error('Selecione Produtos para seu carrinho!!!', {
         position: toast.POSITION.TOP_CENTER,
       })
+      return
     }
     checkout(data)
   }

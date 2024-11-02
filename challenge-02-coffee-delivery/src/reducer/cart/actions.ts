@@ -1,5 +1,5 @@
 import { Item, OrderInfo } from '@/types/Cart'
-import { ActionTypes } from '../enum/actions'
+import { ActionTypes } from '../../lib/enum/actions'
 import { toast } from 'react-toastify'
 import { NavigateFunction } from 'react-router-dom'
 
@@ -29,7 +29,7 @@ export type Actions =
   | {
       type: ActionTypes.ADD_LOCALSTORAGE
       payload: {
-        order: OrderInfo
+        orders: OrderInfo[]
       }
     }
 
@@ -94,11 +94,11 @@ export const checkoutCartAction = (
   } satisfies Actions
 }
 
-export const addLocalStorage = (order: OrderInfo) => {
+export const addLocalStorageAction = (orders: OrderInfo[]) => {
   return {
     type: ActionTypes.ADD_LOCALSTORAGE,
     payload: {
-      order,
+      orders,
     },
   } satisfies Actions
 }

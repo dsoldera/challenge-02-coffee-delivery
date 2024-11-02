@@ -1,8 +1,8 @@
 import { PiTrash } from 'react-icons/pi'
 import { Quantity } from '../Card/components/Quantity'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Coffee } from '@/types/Card'
-import { useCart } from '@/lib/hooks/useCart'
+import { useCart } from '@/hooks/useCart'
 import {
   CartTotal,
   CoffeeItem,
@@ -54,8 +54,8 @@ export const TotalCart = () => {
     <ContainerTotal>
       <CartTotal>
         {coffeesInCart.map((coffee) => (
-          <div key={coffee.id}>
-            <CoffeeItem key={coffee.id}>
+          <Fragment key={coffee.id}>
+            <CoffeeItem>
               <img src={coffee.image} alt={coffee.title} />
               <CoffeeInfo>
                 <div>
@@ -79,7 +79,7 @@ export const TotalCart = () => {
               </CoffeeInfo>
               <Price>R$ {coffee.price?.toFixed(2)}</Price>
             </CoffeeItem>
-          </div>
+          </Fragment>
         ))}
         <CartTotalInfo>
           <div>

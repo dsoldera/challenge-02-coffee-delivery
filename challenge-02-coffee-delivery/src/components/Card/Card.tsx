@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CardProps } from '@/types/Card'
 import { Quantity } from './components/Quantity'
-import { useCart } from '@/lib/hooks/useCart'
+import { useCart } from '@/hooks/useCart'
 import {
   CoffeeImg,
   Container,
