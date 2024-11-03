@@ -14,15 +14,16 @@ import {
 } from './styles'
 import { CheckFat, ShoppingCart } from '@phosphor-icons/react'
 import { useTheme } from 'styled-components'
+import { useCartZustand } from '@/store/cart/cart'
 
 export const Card = ({ coffee }: CardProps) => {
   const [isItemAdded, setIsItemAdded] = useState(false)
   const [quantity, setQuantity] = useState(1)
-  const { addItemtoCart } = useCart()
+  const { addItemZ } = useCartZustand()
   const theme = useTheme()
 
   const handleAddItem = () => {
-    addItemtoCart({ id: coffee.id, quantity })
+    addItemZ({ id: coffee.id, quantity })
     setIsItemAdded(true)
     setQuantity(1)
   }

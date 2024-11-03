@@ -11,13 +11,14 @@ import {
   ContainerTotal,
   Price,
 } from './styles'
+import { useCartZustand } from '@/store/cart/cart'
 
 const shippingPrice = 3.5
 
 export const TotalCart = () => {
   const [coffees, setCoffees] = useState<Coffee[]>([])
-  const { cart, removeItemCart, incrementQuantity, decrementQuantity } =
-    useCart()
+  const { cartZ, removeItemZ, incrementItemZ, decrementItemZ } =
+    useCartZustand()
 
   useEffect(() => {
     fetch('./api/data.json')
@@ -26,18 +27,18 @@ export const TotalCart = () => {
   }, [])
 
   const handleItemRemove = (itemId: string) => {
-    removeItemCart(itemId)
+    removeItemZ(itemId)
   }
 
   const handleAddCoffee = (itemId: string) => {
-    incrementQuantity(itemId)
+    incrementItemZ(itemId)
   }
 
   const handleRemoveCoffee = (itemId: string) => {
-    decrementQuantity(itemId)
+    decrementItemZ(itemId)
   }
 
-  const coffeesInCart = cart.map((item) => {
+  const coffeesInCart = cartZ.map((item) => {
     const coffeeInfo = coffees.find((coffee) => coffee.id === item.id)
 
     return {

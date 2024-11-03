@@ -2,7 +2,6 @@ import { ToastContainer, toast } from 'react-toastify'
 import { TotalCart } from '@/components/TotalCart/TotalCart'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { FormInputs } from '@/types/Address'
-import { useCart } from '@/hooks/useCart'
 import {
   AddressContainer,
   AddressForm,
@@ -27,9 +26,10 @@ import {
   Money,
 } from '@phosphor-icons/react'
 import { PaymentRadio, TextInput } from '@/components/Form'
+import { useCartZustand } from '@/store/cart/cart'
 
 export const CartPage = () => {
-  const { cart, checkout } = useCart()
+  const { cartZ, checkoutZ } = useCartZustand()
   const {
     register,
     handleSubmit,
@@ -43,15 +43,15 @@ export const CartPage = () => {
 
   const handleOrderCheckout: SubmitHandler<FormInputs> = (data) => {
     console.log('handle data', data)
-    console.log('cart', cart)
+    console.log('cart', cartZ)
 
-    if (cart.length === 0) {
+    if (cartZ.length === 0) {
       toast.error('Selecione Produtos para seu carrinho!!!', {
         position: toast.POSITION.TOP_CENTER,
       })
       return
     }
-    checkout(data)
+    checkoutZ(data)
   }
 
   return (
