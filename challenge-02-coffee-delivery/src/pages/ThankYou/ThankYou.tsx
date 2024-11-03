@@ -1,15 +1,13 @@
-import { useCart } from '@/hooks/useCart'
-import { Order } from '@/types/Cart'
+import { useCartZustand } from '@/store/cart/cart'
 import { Helmet } from 'react-helmet-async'
 import { useParams } from 'react-router-dom'
 
 export const ThankYouPage = () => {
-  const { orders, addLocalStorage } = useCart()
-  console.log('orders', orders)
+  const { orderZ } = useCartZustand()
+  console.log('orders', orderZ)
 
-  addLocalStorage(orders)
   const { orderId } = useParams()
-  const orderInfo = orders.find((order: Order) => order.id === Number(orderId))
+  const orderInfo = orderZ?.find((order) => order === Number(orderId))
 
   const paymentMethod = {
     credit: 'Cartão de crédito',
