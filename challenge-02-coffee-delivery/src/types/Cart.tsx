@@ -15,11 +15,9 @@ export const addressPaymentNewOrder = z.object({
   neighborhood: z.string().min(1, mandatory),
   city: z.string().min(1, mandatory),
   state: z.string().min(1, mandatory),
-  paymentMethod: z
-    .enum(['credit', 'debit', 'cash'], {
-      invalid_type_error: mandatory,
-    })
-    .optional(),
+  paymentMethod: z.enum(['credit', 'debit', 'cash'], {
+    invalid_type_error: 'Informe um método de pagamento',
+  }),
 })
 
 export type OrderInfo = z.infer<typeof addressPaymentNewOrder>

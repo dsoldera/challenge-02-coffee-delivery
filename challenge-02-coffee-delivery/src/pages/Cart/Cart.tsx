@@ -42,8 +42,8 @@ export const CartPage = () => {
   const selectedPaymentMethod = watch('paymentMethod')
 
   const handleOrderCheckout: SubmitHandler<FormInputs> = (data) => {
-    console.log('handle data', data)
-    console.log('cart', cart)
+    // console.log('handle data', data)
+    // console.log('cart', cart)
 
     if (cart.length === 0) {
       toast.error('Selecione Produtos para seu carrinho!!!', {

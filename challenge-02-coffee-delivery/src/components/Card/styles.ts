@@ -16,7 +16,6 @@ export const Container = styled.div`
 
   button {
     background-color: transparent;
-    border: 1px solid gray;
     align-items: center;
     display: flex;
   }
