@@ -23,9 +23,6 @@ Apesar de serem poucas funcionalidades, você vai precisar relembrar conceitos c
 
 Para completar esse desafio, você pode necessitar de pesquisas para aprender sobre métodos de manipulação de arrays como o `reduce` que será extremamente útil para o cálculo do valor total do carrinho.
 
-
 ## Layout
-- https://www.figma.com/file/8K6JFHezW91TniLZwZXPK2/Coffee-Delivery-%E2%80%A2-Desafio-React-(Copy)?node-id=2%3A12&mode=dev
+- https://www.figma.com/design/8K6JFHezW91TniLZwZXPK2/Coffee-Delivery-%E2%80%A2-Desafio-React-(Copy)?node-id=2-12&node-type=canvas&t=XMPbFHn10b7RK9fi-0
 
-## Possivel Solucao
-- https://github.com/rocketseat-education/ignite-challenge-solution-reactjs-coffee-delivery
